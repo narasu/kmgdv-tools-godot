@@ -1,0 +1,36 @@
+[gd_scene load_steps=4 format=3 uid="uid://dghuq3ib25mps"]
+
+[ext_resource type="Script" path="res://src/testbutton.gd" id="1_4ppkg"]
+[ext_resource type="Script" path="res://src/dragdroptest.gd" id="1_ekld5"]
+[ext_resource type="Script" path="res://src/file_manager.gd" id="3_nd5ev"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ekld5")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -222.0
+offset_top = -150.0
+offset_right = 222.0
+offset_bottom = 150.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "button!"
+script = ExtResource("1_4ppkg")
+
+[node name="Node" type="Node" parent="."]
+script = ExtResource("3_nd5ev")
+
+[connection signal="file_dropped" from="." to="Node" method="_on_file_dropped"]
+[connection signal="save_clicked" from="Button" to="Node" method="_on_save_clicked"]
